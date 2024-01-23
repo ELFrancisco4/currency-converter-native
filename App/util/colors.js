@@ -1,8 +1,11 @@
 export const colors = {
-    bgColor: '#7D3C98',
+    bgColor: '#6D159A',
     secondaryColor: '#fb5b5a',
-    black: '#000',
-    white: '#fff',
+    primaryColor: '#8C0B98',
+    black: '#000000',
+    white: '#FEFEFB',
     inputColor: '#f5f5f5',
-    lemon: '#D7EA1F'
+    lemon: '#D7EA1F',
+    themePink: '#9C759A',
+    themeIndigo: '#5D0A85'
 }

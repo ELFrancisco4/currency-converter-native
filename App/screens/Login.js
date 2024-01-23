@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { colors } from '../util/colors';
 import {CurrencyDollarIcon} from "react-native-heroicons/solid"
+import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const styles = StyleSheet.create({
     container: {
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const navigation = useNavigation()
   const validatePassword = (password) => {
     const rules = {
       minLength: 8,
@@ -138,12 +141,11 @@ const Login = () => {
             </TouchableOpacity>
             <TouchableOpacity>
               <Text style={styles.signupButton}>Don't have an account? {' '}
-                  <Text style={styles.signUpText}>Sign up</Text>
+                  <Text onPress={() => navigation.navigate('Profile')} style={styles.signUpText}>Sign up</Text>
               </Text>
             </TouchableOpacity>
         </ScrollView>
     </KeyboardAvoidingView>
   );
 };
-
 export default Login;
