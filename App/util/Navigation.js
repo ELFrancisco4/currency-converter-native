@@ -6,8 +6,9 @@ import Profile from "../screens/Profile";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from '@expo/vector-icons';
 import Charts from "../screens/Charts";
+import Calculator from "../screens/Calculator";
 
-let loggedIn = false;
+let loggedIn = true;
 
 const AuthStack = () => {
   const Stack = createStackNavigator();
@@ -48,7 +49,10 @@ const RootStack = () => {
               iconName = focused ? 'person' : 'person-outline';
             } else if (route.name === 'Charts') {
               iconName = focused ? 'stats-chart' : 'stats-chart-outline';
-            } // ... other routes with corresponding icons
+             } else if (route.name === 'Calculator'){
+               iconName = focused ? 'calculator' : 'calculator-outline'
+             } 
+            // ... other routes with corresponding icons
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
@@ -62,7 +66,6 @@ const RootStack = () => {
             borderRadius: 10, // Match the border radius with the image
             height: 60, // Match the height with the image
             paddingBottom: 10, // padding bottom
-            // ... add other styling that matches the uploaded image
           },
           headerShown: false, // No header
         })}
@@ -73,6 +76,7 @@ const RootStack = () => {
           options={{ title: 'Profile' }}
         />
         <Tab.Screen name="Charts" component={Charts}/>
+        <Tab.Screen name="Calculator" component={Calculator}/>
         {/* Other Tab.Screens go here */}
       </Tab.Navigator>
     </NavigationContainer>
